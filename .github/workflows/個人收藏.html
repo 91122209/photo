@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人收藏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="collect">
+    
+    <div class="gallery">
+        <img id="collection-image" src="https://assets.blog.engoo.com/wp-content/uploads/sites/3/2017/06/18093250/shutterstock_252338818-1024x597.jpg.webp" alt="收藏物品1">
+    </div>
+
+    
+    <div class="buttons">
+        <button onclick="prevItem()">上一項收藏</button>
+        <button onclick="nextItem()">下一項收藏</button>
+    </div>
+
+    <script>
+        
+        const items = ['https://assets.blog.engoo.com/wp-content/uploads/sites/3/2017/06/18093250/shutterstock_252338818-1024x597.jpg.webp', 'https://assets.blog.engoo.com/wp-content/uploads/sites/3/2020/09/02105326/1497867613-1104876024.jpg.webp', 'https://assets.blog.engoo.com/wp-content/uploads/sites/3/2020/09/02105332/1497867656-1140987911.jpg.webp'
+    ,'https://assets.blog.engoo.com/wp-content/uploads/sites/3/2020/09/02105340/1497867745-1134334958.jpg.webp'];
+        let currentIndex = 0;
+
+        function updateImage() {
+            const img = document.getElementById('collection-image');
+            img.src = items[currentIndex];
+        }
+
+        function prevItem() {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateImage();
+        }
+
+        function nextItem() {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateImage();
+        }
+    </script>
+</body>
+</html>
